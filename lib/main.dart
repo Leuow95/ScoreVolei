@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Placar de Volei'),
     );
   }
 }
@@ -29,6 +29,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _time1 = 0;
   int _time2 = 0;
+  double larguraBotao = 200;
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +37,12 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title!),
       ),
-      body: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Center(
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 //TIME 1
                 GestureDetector(
@@ -50,26 +51,23 @@ class _MyHomePageState extends State<MyHomePage> {
                       _time1++;
                     });
                   },
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: Container(
-                      height: 250,
-                      width: 200,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.blue,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            '$_time1',
-                            style: TextStyle(
-                              fontSize: 100,
-                            ),
+                  child: Container(
+                    height: 250,
+                    width: larguraBotao,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.blue,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          '$_time1',
+                          style: TextStyle(
+                            fontSize: 100,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -82,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                   child: Container(
                     height: 250,
-                    width: 200,
+                    width: larguraBotao,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.red,
@@ -103,14 +101,84 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
+          SizedBox(height: 30),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _time1--;
+                  });
+                },
+                child: Container(
+                  child: Center(
+                    child: Text(
+                      "-1",
+                      style: TextStyle(
+                        fontSize: 38,
+                      ),
+                    ),
+                  ),
+                  height: 50,
+                  width: 50,
                   decoration: BoxDecoration(
-                color: Colors.purple,
-              ))
+                    color: Colors.blue,
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _time2--;
+                  });
+                },
+                child: Container(
+                    child: Center(
+                      child: Text(
+                        "-1",
+                        style: TextStyle(
+                          fontSize: 38,
+                        ),
+                      ),
+                    ),
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                    )),
+              ),
             ],
           ),
+          SizedBox(height: 30),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _time1 = 0;
+                    _time2 = 0;
+                  });
+                },
+                child: Container(
+                  height: 50,
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                  ),
+                  child: Text(
+                    "ZERAR TUDO",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 40,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );
