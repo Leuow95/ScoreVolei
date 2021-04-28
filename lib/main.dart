@@ -9,7 +9,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'App Placar de Volei',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -123,6 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 50,
                   width: 50,
                   decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
                     color: Colors.blue,
                   ),
                 ),
@@ -145,6 +147,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 50,
                     width: 50,
                     decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
                       color: Colors.red,
                     )),
               ),
@@ -165,6 +168,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 50,
                   width: MediaQuery.of(context).size.width * 0.9,
                   decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
                     color: Colors.grey,
                   ),
                   child: Text(
