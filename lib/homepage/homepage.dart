@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pontosvolei/time.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -9,8 +10,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _time1 = 0;
-  int _time2 = 0;
+  Time time1 = Time("time1", 0);
+  Time time2 = Time("time2", 0);
+
   double larguraBotao = 150;
 
   @override
@@ -32,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 GestureDetector(
                   onTap: () {
                     setState(() {
-                      _time1++;
+                      time1.incrementaPonto();
                     });
                   },
                   child: Container(
@@ -46,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          '$_time1',
+                          '${time1.ponto}',
                           style: TextStyle(
                             fontSize: 100,
                           ),
@@ -59,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 GestureDetector(
                   onTap: () {
                     setState(() {
-                      _time2++;
+                      time2.incrementaPonto();
                     });
                   },
                   child: Container(
@@ -73,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          '$_time2',
+                          '${time2.ponto}',
                           style: TextStyle(
                             fontSize: 100,
                           ),
@@ -92,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    _time1--;
+                    time1.decrementaPonto();
                   });
                 },
                 child: Container(
@@ -115,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    _time2--;
+                    time1.decrementaPonto();
                   });
                 },
                 child: Container(
@@ -143,8 +145,8 @@ class _MyHomePageState extends State<MyHomePage> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    _time1 = 0;
-                    _time2 = 0;
+                    time1.zeraPonto();
+                    time2.zeraPonto();
                   });
                 },
                 child: Container(
