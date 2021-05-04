@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pontosvolei/time.dart';
+import 'package:pontosvolei/models/time.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -157,7 +157,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Colors.grey,
                   ),
                   child: Text(
-                    "ZERAR TUDO",
+                    "RESET",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 40,

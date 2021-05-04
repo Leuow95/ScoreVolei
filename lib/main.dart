@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'homepage.dart';
+import 'homepage/homepage.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,11 +12,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'App Placar de Volei',
+      title: 'Score Point',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Placar de Volei'),
+      home: MyHomePage(title: 'Score Point'),
     );
   }
 }
